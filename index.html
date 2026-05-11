@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Martín Quinteiro | Finanzas de gestión</title>
+  <meta name="description" content="Acompañamiento financiero para empresas en crecimiento que necesitan revisar procesos, flujos de información y planificación para tomar mejores decisiones." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://quinteiromartin.github.io/finanzas-gestion/" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Martín Quinteiro | Finanzas de gestión" />
+  <meta property="og:description" content="Procesos, información de gestión y planificación para decidir mejor." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://quinteiromartin.github.io/finanzas-gestion/og-image.svg" />
+  <style>
+    :root {
+      --ink: #19202a;
+      --muted: #5e6877;
+      --line: #d8dde5;
+      --paper: #f7f5ef;
+      --surface: #ffffff;
+      --blue: #1d4f8f;
+      --blue-dark: #143963;
+      --green: #2f6f5e;
+      --warm: #b7783b;
+      --shadow: 0 20px 50px rgba(25, 32, 42, .09);
+      --radius: 8px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(25, 32, 42, .1);
+      background: rgba(247, 245, 239, .92);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 3;
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.15;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 82px 0 62px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.72) 0%, rgba(247,245,239,.92) 44%, rgba(226,234,236,.78) 100%);
+      border-bottom: 1px solid rgba(25, 32, 42, .08);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--green);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 5.2vw, 68px);
+      line-height: .98;
+      letter-spacing: 0;
+      max-width: 820px;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 680px;
+      color: #3d4654;
+      font-size: clamp(18px, 2.1vw, 22px);
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 6px;
+      border: 1px solid var(--blue);
+      text-decoration: none;
+      font-weight: 750;
+      font-size: 15px;
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(29, 79, 143, .24);
+    }
+
+    .btn.primary:hover { background: var(--blue-dark); }
+
+    .btn.secondary {
+      background: rgba(255,255,255,.58);
+      color: var(--blue);
+    }
+
+    .btn.secondary:hover { background: #fff; }
+
+    .signal-panel {
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(25, 32, 42, .1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .signal-panel h2 {
+      margin: 0 0 18px;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 14px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .signal-list li {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 11px;
+      color: #3d4654;
+      font-size: 15px;
+    }
+
+    .signal-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 8px;
+      background: var(--warm);
+    }
+
+    section {
+      padding: 66px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .label {
+      color: var(--green);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(25, 32, 42, .1);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 210px;
+    }
+
+    .card .num {
+      color: var(--warm);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .band {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .band .section-head p,
+    .band .label {
+      color: rgba(255,255,255,.72);
+    }
+
+    .deliverables {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .deliverable {
+      border-top: 1px solid rgba(255,255,255,.22);
+      padding-top: 18px;
+      color: rgba(255,255,255,.86);
+      font-size: 16px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .quote {
+      background: #fff;
+      border-left: 5px solid var(--blue);
+      padding: 26px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color: #374151;
+      font-size: 19px;
+      line-height: 1.45;
+      box-shadow: 0 12px 34px rgba(25, 32, 42, .06);
+    }
+
+    .bio p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .bio strong {
+      color: var(--ink);
+    }
+
+    .contact {
+      padding-bottom: 78px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid rgba(25, 32, 42, .1);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(26px, 3vw, 38px);
+    }
+
+    .contact-box p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      max-width: 660px;
+      font-size: 17px;
+    }
+
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid rgba(25, 32, 42, .1);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        height: auto;
+        padding: 16px 0;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 54px 0 46px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .grid,
+      .deliverables {
+        grid-template-columns: 1fr;
+      }
+
+      .signal-panel,
+      .contact-box {
+        padding: 24px;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="wrap">
+        <nav class="nav" aria-label="Principal">
+          <a class="brand" href="#inicio" aria-label="Martín Quinteiro, Finanzas de gestión">
+            <span>
+              <strong>Martín Quinteiro</strong>
+              <span>Finanzas de gestión</span>
+            </span>
+          </a>
+          <div class="nav-links" aria-label="Secciones">
+            <a href="#cuando">Cuándo conversar</a>
+            <a href="#trabajo">Cómo trabajamos</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <div class="eyebrow">Consultoría financiera</div>
+            <h1>Finanzas para empresas en crecimiento</h1>
+            <p class="lead">Acompañamos al management y a sus equipos a revisar procesos, flujos de información y planificación para construir una base más clara para la toma de decisiones.</p>
+            <div class="actions">
+              <a class="btn primary" href="https://wa.me/5491133585376?text=Hola%20Mart%C3%ADn%2C%20me%20interesa%20conversar%20sobre%20finanzas%20de%20gesti%C3%B3n." target="_blank" rel="noopener noreferrer">Coordinar por WhatsApp</a>
+              <a class="btn secondary" href="mailto:quinteiro.martin@outlook.com?subject=Consulta%20por%20finanzas%20de%20gesti%C3%B3n">Enviar un mail</a>
+            </div>
+          </div>
+
+          <aside class="signal-panel" aria-labelledby="signals-title">
+            <h2 id="signals-title">Problemáticas típicas que abordamos</h2>
+            <ul class="signal-list">
+              <li>La caja se mira tarde o con poca previsibilidad.</li>
+              <li>Hay ventas, pero no siempre claridad sobre margen real.</li>
+              <li>Las compras, gastos o inversiones se deciden con información incompleta.</li>
+              <li>Los reportes dependen de una persona o de planillas dispersas.</li>
+              <li>El crecimiento exige una capa de gestión, pero no justifica más estructura.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="cuando">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="label">Cuándo conversar</div>
+            <h2>Empresas que necesitan gestión financiera más cerca del negocio.</h2>
+            <p>Trabajamos sobre procesos, información y rutinas de seguimiento para conectar la operación diaria con una lectura más clara del negocio.</p>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <div class="num">01</div>
+              <h3>Caja y capital de trabajo</h3>
+              <p>Previsibilidad de cobros, pagos, liquidez, deuda, compras y necesidades de fondos para operar con menos incertidumbre.</p>
+            </article>
+            <article class="card">
+              <div class="num">02</div>
+              <h3>Margen y performance</h3>
+              <p>Lectura de resultados, costos, márgenes, unidades de negocio e indicadores que expliquen qué está funcionando bien y qué no.</p>
+            </article>
+            <article class="card">
+              <div class="num">03</div>
+              <h3>Planificación y seguimiento</h3>
+              <p>Presupuesto, forecast, escenarios, KPIs y rutinas de gestión para anticipar desvíos y ordenar prioridades.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="trabajo">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="label">Cómo trabajamos</div>
+            <h2>Primero analizamos el negocio. Después trabajamos en instalar procesos y cultura de gestión.</h2>
+            <p>El punto de partida es un diagnóstico ejecutivo y una agenda priorizada. Desde ahí se definen etapas, próximos pasos y el modelo de acompañamiento más adecuado para cada situación.</p>
+          </div>
+
+          <ul class="deliverables" aria-label="Entregables habituales">
+            <li class="deliverable">Diagnóstico financiero y mapa de prioridades.</li>
+            <li class="deliverable">Cashflow semanal o mensual con supuestos claros.</li>
+            <li class="deliverable">Tablero de gestión con KPIs y responsables.</li>
+            <li class="deliverable">P&L de gestión, márgenes y lectura por unidad de negocio.</li>
+            <li class="deliverable">Presupuesto, forecast y escenarios de decisión.</li>
+            <li class="deliverable">Rutinas de seguimiento para dirección o gerencia.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap about-grid">
+          <div class="quote">El objetivo es lograr que la información correcta llegue a tiempo, sea entendible y ayude a decidir.</div>
+          <div class="bio">
+            <div class="label">Quién está detrás</div>
+            <h2>Martín Quinteiro</h2>
+            <p><strong>Consultor financiero con 20 años de experiencia en finanzas, planeamiento, control de gestión y estrategia.</strong></p>
+            <p>Actualmente trabajo con empresas en procesos de gestión financiera, análisis del negocio, presupuestación, forecasting, reporting gerencial y soporte a la toma de decisiones.</p>
+            <p>Mi enfoque combina solidez analítica con una mirada práctica: entender cómo funciona el negocio, ordenar lo que hace falta y dejar herramientas que el equipo pueda sostener.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contacto">
+        <div class="wrap">
+          <div class="contact-box">
+            <div>
+              <div class="label">Primer paso</div>
+              <h2>Una conversación alcanza para ver si tiene sentido avanzar.</h2>
+              <p>Podemos revisar contexto, principales dolores de gestión y qué tipo de ayuda sería más útil en esta etapa.</p>
+            </div>
+            <div class="actions">
+              <a class="btn primary" href="https://wa.me/5491133585376?text=Hola%20Mart%C3%ADn%2C%20me%20interesa%20conversar%20sobre%20finanzas%20de%20gesti%C3%B3n." target="_blank" rel="noopener noreferrer">Coordinar por WhatsApp</a>
+              <a class="btn secondary" href="mailto:quinteiro.martin@outlook.com?subject=Consulta%20por%20finanzas%20de%20gesti%C3%B3n">Email</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <div>Martín Quinteiro | Finanzas de gestión</div>
+        <div>Buenos Aires · remoto o presencial a convenir</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
